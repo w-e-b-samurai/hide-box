@@ -1,0 +1,81 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+.hide-text-section {
+	margin-top: 150px;
+	position: relative;
+}
+.hide-text-section input {
+	display: none;
+}
+.hide-text-section-container {
+	position: relative;
+	height: 150px;
+	text-align: center;
+	padding: 40px;
+	background-color: #FEE6C1FF;
+	overflow: hidden;
+	transition: height 0.35s;
+}
+
+.hide-text-section-container:before,
+.hide-text-section-container:after {
+	position: absolute;
+	content: "";
+	display: block;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	height: 50%;
+	filter: invert(40%);
+	background-color: rgba(0,0,0,0.9);
+	transition: background-color 0.35s, top 0.9s ease;
+	z-index: 1;
+}
+
+.hide-text-section-container:after {
+	top: 0;
+}
+
+.hide-text-section label {
+	position: absolute;
+	top: 50%;
+	left:50%;
+	transform: translateY(-50%);
+	transform: translateX(-50%);
+	padding: 10px 20px 10px 20px;
+	color: white;
+	font-weight: 300;
+	background-color: black;
+	cursor: pointer;
+	border: 2px solid black;
+	border-radius: 3px;
+	transition: background-color 0.35s ease, color 0.35s ease;
+	z-index: 10;
+}
+
+.hide-text-section label:hover {
+	background-color: white;
+	color: black;
+}
+
+.hide-text-section label:hover ~ .hide-text-section-container:before,
+.hide-text-section label:hover ~ .hide-text-section-container:after {
+	background-color: yellowgreen;
+}
+
+.hide-text-section input:checked ~ .hide-text-section-container {
+	height: 100%;
+}
+
+.hide-text-section input:checked ~ .hide-text-section-container:before {
+	top: 120%;
+}
+.hide-text-section input:checked ~ .hide-text-section-container:after {
+	top: -60%;
+}
+
+.hide-text-section input:checked ~label {
+	display: none;
+}
